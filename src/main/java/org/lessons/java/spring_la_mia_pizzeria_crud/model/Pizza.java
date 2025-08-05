@@ -1,11 +1,14 @@
 package org.lessons.java.spring_la_mia_pizzeria_crud.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "pizze")
@@ -19,13 +22,23 @@ public class Pizza {
     private String name;
 
     @NotBlank(message = "desc must not be null, empty or blank")
+    @Column(name = "description")
     private String desc;
 
     @NotBlank(message = "url must not be null, empty or blank")
     private String url;
 
-    @NotBlank(message = "price must not be null, empty or blank")
-    private double price;
+    @NotNull(message = "price must not be null")
+    @Positive(message = "price must be greater than zero")
+    private int price;
+
+    public Pizza(Integer id, String name, String desc, String url, int price) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+        this.url = url;
+        this.price = price;
+    }
 
     public Integer getId() {
         return this.id;
@@ -59,11 +72,11 @@ public class Pizza {
         this.url = url;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return this.price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
