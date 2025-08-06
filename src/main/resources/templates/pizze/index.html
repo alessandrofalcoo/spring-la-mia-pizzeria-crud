@@ -26,7 +26,9 @@
                     </thead>
                     <tbody>
                         <tr th:each="pizza : ${pizze}" th:object="${pizza}">
-                            <td>[[*{name}]]</td>
+                            <td>
+                                <a th:href="@{'/pizze/' + *{id}}">[[*{name}]]</a>
+                            </td>
                             <td>[[*{desc}]]</td>
                             <td>[[*{price}]]</td>
                             <td><img th:src="*{url}" alt=""></td>
