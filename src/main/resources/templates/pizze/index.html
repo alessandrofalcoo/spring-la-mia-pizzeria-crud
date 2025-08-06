@@ -12,7 +12,31 @@
 <body>
     <h1>Pizze</h1>
     <hr />
-    <p th:text="${pizze}" class="m-3"></p>
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <table class="table" th:if="${pizze.size() > 0}">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrizione</th>
+                            <th>Prezzo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="pizza : ${pizze}" th:object="${pizza}">
+                            <td>[[*{name}]]</td>
+                            <td>[[*{desc}]]</td>
+                            <td>[[*{price}]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p th:text="No pizzas are available at the moment" th:unless="${pizze.size() > 0}"></p>
+            </div>
+
+        </section>
+
+    </main>
 </body>
 
 </html>
