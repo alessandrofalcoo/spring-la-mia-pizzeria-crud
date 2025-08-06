@@ -32,6 +32,9 @@ public class Pizza {
     @Positive(message = "price must be greater than zero")
     private int price;
 
+    public Pizza() {
+    }
+
     public Pizza(Integer id, String name, String desc, String url, int price) {
         this.id = id;
         this.name = name;
@@ -78,6 +81,11 @@ public class Pizza {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Nome: %s, Descrizione: %s, Prezzo: %s", this.name, this.desc, this.price + "€");
     }
 
 }
