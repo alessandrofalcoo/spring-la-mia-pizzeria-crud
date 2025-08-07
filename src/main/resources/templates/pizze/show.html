@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <header>
+        <th:block th:replace="fragments/nav"></th:block>
+
+    </header>
     <main class="container" th:object="${pizza}">
         <h1>[[*{name}]]</h1>
         <hr />
