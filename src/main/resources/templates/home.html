@@ -13,7 +13,18 @@
     <header>
         <th:block th:replace="fragments/nav"></th:block>
     </header>
-    <main>
+    <main class="container mt-4">
+        <form th:action="@{/pizze/searchByName}" method="get" class="d-flex mb-3">
+            <input type="text" name="name" class="form-control me-2" placeholder="Cerca una pizza...">
+            <button type="submit" class="btn btn-primary">Cerca</button>
+        </form>
+
+        <div th:if="${pizze != null}">
+            <h3>Risultati della ricerca:</h3>
+            <ul>
+                <li th:each="pizza : ${pizze}" th:text="${pizza.name}"></li>
+            </ul>
+        </div>
     </main>
 
 

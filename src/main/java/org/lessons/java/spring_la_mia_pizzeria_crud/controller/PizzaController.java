@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.lessons.java.spring_la_mia_pizzeria_crud.model.Pizza;
 
 @Controller
@@ -33,4 +34,11 @@ public class PizzaController {
         return "pizze/show";
     }
 
+    @GetMapping("/searchByName")
+    public String searchByName(@RequestParam(name = "name") String name, Model model) {
+
+        List<Pizza> pizze = repository.findByNameContaining(name);
+        model.addAttribute("pizze", pizze);
+        return "pizze/index";
+    }
 }
