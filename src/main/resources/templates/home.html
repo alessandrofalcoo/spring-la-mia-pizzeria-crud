@@ -13,20 +13,16 @@
     <header>
         <th:block th:replace="fragments/nav"></th:block>
     </header>
-    <main class="container mt-4">
-        <form th:action="@{/pizze/searchByName}" method="get" class="d-flex mb-3">
-            <input type="text" name="name" class="form-control me-2" placeholder="Cerca una pizza...">
-            <button type="submit" class="btn btn-primary">Cerca</button>
-        </form>
 
-        <div th:if="${pizze != null}">
-            <h3>Risultati della ricerca:</h3>
-            <ul>
-                <li th:each="pizza : ${pizze}" th:text="${pizza.name}"></li>
-            </ul>
-        </div>
+    <main class="container-fluid m-4">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, in ratione. Molestias, nemo rem eaque quia
+            adipisci necessitatibus fuga cum quibusdam voluptas dolores laborum iste velit tenetur nobis magni
+            provident! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dolore praesentium libero
+            perspiciatis fugit quibusdam consequatur cum quisquam incidunt reprehenderit eveniet fugiat corporis,
+            tempore esse, ratione voluptas! Alias, recusandae provident? Lorem ipsum dolor, sit amet consectetur
+            adipisicing elit. Eveniet sed necessitatibus eius sapiente inventore praesentium deleniti corporis
+            voluptatum blanditiis cumque et nesciunt sequi temporibus minus omnis non doloremque, repudiandae ab.</p>
     </main>
-
 
 </body>
 
