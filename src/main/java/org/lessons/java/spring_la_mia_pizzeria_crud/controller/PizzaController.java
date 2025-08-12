@@ -64,7 +64,7 @@ public class PizzaController {
 
         repository.save(formPizza);
 
-        return "redirect:/pizze";
+        return "redirect:/pizze/index";
     }
 
     @GetMapping("/edit/{id}")
