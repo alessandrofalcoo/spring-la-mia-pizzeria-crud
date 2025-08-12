@@ -23,6 +23,7 @@
                             <th>Descrizione</th>
                             <th>Prezzo</th>
                             <th>Immagine</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,17 @@
                             <td>[[*{desc}]]</td>
                             <td>[[*{price}]]</td>
                             <td><img th:src="*{url}" alt=""></td>
+                            <td>
+                                <a th:href="@{/pizze/{id}(id=${pizza.id})}" class="btn btn-primary btn-sm">Show</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/pizze/edit/{id}(id=${pizza.id})}" class="btn btn-success btn-sm">Edit</a>
+                            </td>
+                            <td>
+                                <form action="#" th:action="@{/pizze/delete/{id}(id=${pizza.id})}" method="post">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
