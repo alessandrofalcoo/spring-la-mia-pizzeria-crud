@@ -30,7 +30,7 @@ public class PizzaController {
         List<Pizza> pizze = repository.findAll();
 
         model.addAttribute("pizze", pizze);
-        return "pizze/index";
+        return "pizze/index"
     }
 
     @GetMapping("/{id}")
